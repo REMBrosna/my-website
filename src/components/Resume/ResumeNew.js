@@ -1,56 +1,51 @@
-import React, { useState, useEffect } from "react";
-import { Container, Row } from "react-bootstrap";
-import Button from "react-bootstrap/Button";
-import Particle from "../Particle";
+import React from "react";
+import { Worker, Viewer } from "@react-pdf-viewer/core";
+import "@react-pdf-viewer/core/lib/styles/index.css";
+import { pdfjs } from "react-pdf";
 import pdf from "../../Assets/../Assets/BROSNAREM-RESUME.pdf";
-import { AiOutlineDownload } from "react-icons/ai";
-import { Document, Page, pdfjs } from "react-pdf";
-import "react-pdf/dist/esm/Page/AnnotationLayer.css";
-pdfjs.GlobalWorkerOptions.workerSrc = `//cdnjs.cloudflare.com/ajax/libs/pdf.js/${pdfjs.version}/pdf.worker.min.js`;
+import {Container, Row} from "react-bootstrap";
+import Particle from "../Particle";
+import {AiOutlineDownload} from "react-icons/ai";
+import Button from "react-bootstrap/Button";
 
-function ResumeNew() {
-  const [width, setWidth] = useState(1200);
-
-  useEffect(() => {
-    setWidth(window.innerWidth);
-  }, []);
-
+const ResumeNew = () => {
+  const downloadResume = () => {
+    window.open(pdf, "_blank");
+  };
   return (
-    <div>
-      <Container fluid className="resume-section">
-        <Particle />
-        <Row style={{ justifyContent: "center", position: "relative" }}>
-          <Button
-            variant="primary"
-            href={pdf}
-            target="_blank"
-            style={{ maxWidth: "250px" }}
-          >
-            <AiOutlineDownload />
-            &nbsp;Download CV
-          </Button>
-        </Row>
+      <div>
+        <Container fluid className="resume-section">
+          <Particle />
+          <Row style={{ justifyContent: "center", position: "relative" }}>
+            <Button
+                variant="primary"
+                onClick={downloadResume}
+                style={{ maxWidth: "250px", marginRight: "10px" }}
+            >
+              <AiOutlineDownload />
+              &nbsp;Download CV
+            </Button>
 
-        <Row className="resume">
-          <Document file={pdf} className="d-flex justify-content-center">
-            <Page pageNumber={1} scale={width > 786 ? 1.7 : 0.6} />
-          </Document>
-        </Row>
+            <Button
+                variant="primary"
+                href={pdf}
+                target="_blank"
+                style={{ maxWidth: "250px" }}
+            >
+              Preview Resume
+            </Button>
+          </Row>
 
-        <Row style={{ justifyContent: "center", position: "relative" }}>
-          <Button
-            variant="primary"
-            href={pdf}
-            target="_blank"
-            style={{ maxWidth: "250px" }}
-          >
-            <AiOutlineDownload />
-            &nbsp;Download CV
-          </Button>
-        </Row>
-      </Container>
-    </div>
+          <Row className="resume" style={{ justifyContent: "center" }}>
+            <div>
+              <Worker workerUrl={`//unpkg.com/pdfjs-dist@${pdfjs.version}/build/pdf.worker.min.js`}>
+                <Viewer fileUrl={pdf} />
+              </Worker>
+            </div>
+          </Row>
+        </Container>
+      </div>
   );
-}
+};
 
 export default ResumeNew;

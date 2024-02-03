@@ -269,7 +269,9 @@ button:focus {
   color: whitesmoke;
   text-align: left;
 }
-
+.App.about .App-header {
+  background: linear-gradient(to right, #0f2027, #203a43, #2c5364);
+}
 .heading {
   font-size: 2.4em !important;
   padding-left: 50px !important;
