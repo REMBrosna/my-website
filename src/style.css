@@ -269,6 +269,12 @@ button:focus {
   color: whitesmoke;
   text-align: left;
 }
+.experience-content {
+  color: whitesmoke;
+  text-align: left;
+  justify-content: center !important;
+  padding-top: 9em !important;
+}
 .App.about .App-header {
   background: linear-gradient(to right, #0f2027, #203a43, #2c5364);
 }
@@ -317,6 +323,10 @@ button:focus {
     padding-top: 2em !important;
     padding-bottom: 2em !important;
   }
+}
+.experience-content {
+  justify-content: center !important;
+  padding-top: 9em !important;
 }
 
 .home-about-section {
@@ -763,6 +773,9 @@ body{
 .App.experience .App-header {
   background: linear-gradient(to right, #0f2027, #203a43, #2c5364);
 }
+.App.experience .App-header-seconds {
+  background: linear-gradient(to right, rgb(10, 4, 22), rgb(10, 4, 22), rgba(162, 77, 211, 0.15));
+}
 .App.work .App-header {
   background: linear-gradient(to right, #00b4db, #0083b0);
 }
@@ -772,7 +785,7 @@ body{
 .App.passion .App-header {
   background: linear-gradient(to right, #56ab2f, #a8e063);
 }
-.App.footer .App-header {
+.App.footer .App-header .App-header-seconds {
   min-height: 10vh;
   padding-left: 100px;
   padding-top: 50px;
@@ -848,4 +861,9 @@ body{
 .show-case-bg {
   position: relative; /* Ensure proper positioning for the shadow */
   box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px, rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px, rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
+}
+
+.show-case, .education-details{
+  color: #ffffff;
+  font-size: 16px;
 }
