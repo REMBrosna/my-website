@@ -1,84 +1,52 @@
-import React, {Component} from 'react';
-import ReactDOM from 'react-dom';
-import About from './components/About';
-import Experience from './components/Experience';
-import Home from './components/Home';
-import Certifications from "./components/Certifications";
+import React, { useState, useEffect } from "react";
+import Preloader from "../src/components/Pre";
+import Navbar from "./components/Navbar";
+import Home from "./components/Home/Home";
+import About from "./components/About/About";
+import Projects from "./components/Projects/Projects";
 import Footer from "./components/Footer";
+import Resume from "./components/Resume/ResumeNew";
+import {
+  BrowserRouter as Router,
+  Route,
+  Routes,
+  Navigate
+} from "react-router-dom";
+import ScrollToTop from "./components/ScrollToTop";
+import "./style.css";
+import "./App.css";
+import "bootstrap/dist/css/bootstrap.min.css";
+import Experience from "./components/Experience/Experience";
 
-class App extends Component {
-    constructor(props) {
-        super(props);
-        this.state = {
-            sticky: false,
-        };
-    }
+function App() {
+  const [load, upadateLoad] = useState(true);
 
-    componentDidMount() {
-        this.scrollHandler = () => {
-            if (window.scrollY > 4) {
-                this.setState({ sticky: true });
-            } else {
-                this.setState({ sticky: false });
-            }
-        };
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      upadateLoad(false);
+    }, 1200);
 
-        window.addEventListener('scroll', this.scrollHandler);
-    }
+    return () => clearTimeout(timer);
+  }, []);
 
-    componentWillUnmount() {
-        window.removeEventListener('scroll', this.scrollHandler);
-    }
-
-    render() {
-        let stickit = this.state.sticky;
-
-        return (
-            <div className="App">
-                <div className="App-inner">
-                    <div className={stickit ? 'routernav-container stickit' : 'routernav-container'}>
-                        <div className="routernav-inner">
-                            <div className="container-logo">
-                                <a href="/">
-                                    <img src="/assets/images/logos/favicon.png" alt="About7codes Logo" className="logo" />
-                                </a>
-                                <h1 className="logo-text">
-                                    <a href="/">
-                                        <span>Brosna</span><br/>
-                                        <span>REM</span>
-                                    </a>
-                                </h1>
-                            </div>
-                            <ul className="routernav">
-                                <li className="routernav-item">
-                                    <a href="#home">Home</a>
-                                </li>
-                                <li className="routernav-item">
-                                    <a href="#about">About</a>
-                                </li>
-                                <li className="routernav-item">
-                                    <a href="#experience">Experience</a>
-                                </li>
-                                <li className="routernav-item">
-                                    <a href="#certifications">Certifications</a>
-                                </li>
-                                <li className="routernav-item">
-                                    <a href="#footer"></a>
-                                </li>
-                            </ul>
-                        </div>
-                    </div>
-                    <Home />
-                    <About />
-                    <Experience />
-                    <Certifications />
-                    <Footer />
-                </div>
-            </div>
-        );
-    }
+  return (
+    <Router>
+      <Preloader load={load} />
+      <div className="App" id={load ? "no-scroll" : "scroll"}>
+        <Navbar />
+        <ScrollToTop />
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="/project" element={<Projects />} />
+          <Route path="/about" element={<About />} />
+          <Route path="/resume" element={<Resume />} />
+          <Route path="/experience" element={<Experience />} />
+          <Route path="*" element={<Navigate to="/"/>} />
+        </Routes>
+        <Footer />
+      </div>
+    </Router>
+  );
 }
-
-ReactDOM.render(<App />, document.getElementById('root'));
 
 export default App;
