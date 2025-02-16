@@ -85,7 +85,7 @@ function Experience() {
                     >
                         <h2 className="mb-4 fw-bold">MY EXPERIENCE</h2>
                         <motion.p className="lead" variants={fadeInUp(0.2)}>
-                            <span className="fw-semibold"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;Software Engineer</span>
+                            <span className="fw-semibold"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;Software Engineer </span>
                             with over 2 years of experience delivering
                             high-quality solutions through effective collaboration, technical expertise, and problem-solving.
                             Skilled in Agile methodologies with a strong history of designing, implementing, and managing web services.
