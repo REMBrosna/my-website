@@ -17,6 +17,7 @@ import "./style.css";
 import "./App.css";
 import "bootstrap/dist/css/bootstrap.min.css";
 import Experience from "./components/Experience/Experience";
+import Freelancer from "./components/Experience/Freelancer";
 
 function App() {
   const [load, updateLoad] = useState(true);
@@ -33,7 +34,7 @@ function App() {
     <Router>
       <Preloader load={load} />
       <div className="App" id={load ? "no-scroll" : "scroll"}>
-        <Navbar />
+        <Navbar  />
         <ScrollToTop />
         <Routes>
           <Route path="/" element={<Home />} />
@@ -41,6 +42,7 @@ function App() {
           <Route path="/about" element={<About />} />
           <Route path="/resume" element={<Resume />} />
           <Route path="/experience" element={<Experience />} />
+          <Route path="/freelancer" element={<Freelancer />} />
           <Route path="*" element={<Navigate to="/"/>} />
         </Routes>
         <Footer />

@@ -1,12 +1,10 @@
 import React from "react";
 import { Col, Row } from "react-bootstrap";
 import {
-    SiVisualstudiocode,
     SiPostman,
-    SiSlack,
-    SiVercel,
-    SiMacos, SiWindows, SiUbuntu, SiIntellijidea,
+    SiMacos, SiUbuntu, SiIntellijidea,
 } from "react-icons/si";
+import {DiVisualstudio, DiWindows} from "react-icons/di";
 
 function ToolStack() {
   return (
@@ -15,7 +13,7 @@ function ToolStack() {
         <SiMacos />
       </Col>
       <Col xs={4} md={2} className="tech-icons">
-         <SiWindows />
+         <DiWindows />
       </Col>
       <Col xs={4} md={2} className="tech-icons">
          <SiUbuntu />
@@ -24,7 +22,7 @@ function ToolStack() {
         <SiIntellijidea />
       </Col>
       <Col xs={4} md={2} className="tech-icons">
-        <SiVisualstudiocode />
+        <DiVisualstudio />
       </Col>
       <Col xs={4} md={2} className="tech-icons">
         <SiPostman />

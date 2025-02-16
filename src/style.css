@@ -33,7 +33,6 @@ button:focus {
   height: 100%;
   z-index: 999999;
   background-color: #0c0513;
-  background-image: url(./Assets/Naruto.gif);
   background-repeat: no-repeat;
   background-position: center;
   background-size: cover;
@@ -772,7 +771,9 @@ body{
   background: linear-gradient(to right, #0f2027, #203a43, #2c5364);
 }
 .App.experience .App-header {
-  background: linear-gradient(to right, #0f2027, #203a43, #2c5364);
+  background-repeat: no-repeat;
+  background-position: 0px 30px, 20%;
+  background-size: auto, contain;
 }
 .App.experience .App-header-seconds {
   background: linear-gradient(to right, rgb(10, 4, 22), rgb(10, 4, 22), rgba(162, 77, 211, 0.15));
@@ -867,4 +868,93 @@ body{
 .show-case, .education-details{
   color: #ffffff;
   font-size: 16px;
+}
+.experience-section {
+  padding: 80px 0;
+  background-color: #f8f9fa;
+}
+
+.experience-image img{
+  background-image: linear-gradient(#1c1d1f00 79%, #1e1f20 92%), url(./Assets/proImage.jpg);
+  max-width: 100%;
+  border-radius: 15px;
+  float: right;
+  background-position: 0 0, 50%;
+  background-repeat: repeat, no-repeat;
+  background-size: auto, contain;
+  width: 531px;
+  height: 807px;
+}
+
+.experience-text h2 {
+  font-size: 2.5rem;
+  color: #333;
+}
+
+.experience-text p {
+  font-size: 1.1rem;
+  color: #555;
+}
+.navbar .nav-link.active-link {
+  color: #ffffff !important;
+}
+
+.experience-text {
+  text-align: left;
+}
+
+@media (max-width: 768px) {
+  .experience-text {
+    text-align: center;
+  }
+}
+/* Default navbar background */
+.navbar {
+  background-color: transparent; /* or your default color */
+  transition: background-color 0.3s ease;
+}
+
+/* Default navbar background */
+.navbar {
+  background-color: transparent; /* or your default color */
+  transition: background-color 0.3s ease;
+}
+
+/* Sticky navbar background */
+.navbar.sticky {
+  background-color: rgba(248, 249, 250, 0); /* Change to your desired sticky color */
+}
+
+/* Active background for Experience */
+.navbar.experience-active {
+  background: rgb(0,0,0);
+  background: radial-gradient(circle, rgba(0,0,0,1) 0%, rgba(0,0,0,0.8995973389355743) 100%);
+}
+span {
+  color: orange;
+  font-weight: bold;
+}
+.experience-section {
+  overflow-x: hidden;
+}
+
+.scroll-section {
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: rgba(255, 0, 136, 0.1); /* Example background color */
+}
+
+.scroll-section:nth-child(2) {
+  background: rgba(221, 0, 238, 0.1);
+}
+
+.scroll-section:nth-child(3) {
+  background: rgba(153, 17, 255, 0.1);
+}
+
+.scroll-section:nth-child(4) {
+  background: rgba(13, 99, 248, 0.1);
 }
