@@ -8,7 +8,7 @@ import { AiFillStar, AiOutlineHome, AiOutlineUser } from "react-icons/ai";
 import { CgFileDocument } from "react-icons/cg";
 import { Button } from "react-bootstrap";
 import "../style.css";
-
+import { IoMdTrendingUp } from "react-icons/io";
 function NavBar() {
   const [expand, updateExpanded] = useState(false);
   const [navColour, updateNavbar] = useState(false);
@@ -68,7 +68,7 @@ function NavBar() {
 
               <Nav.Item>
                 <Nav.Link as={Link} to="/experience" onClick={() => updateExpanded(false)} className={getLinkClass('/experience')}>
-                  Experience
+                  <IoMdTrendingUp  style={{ marginBottom: "2px" }} />  Experience
                 </Nav.Link>
               </Nav.Item>
 
